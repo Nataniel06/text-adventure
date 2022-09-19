@@ -1,7 +1,8 @@
+from msilib import PID_LASTSAVE_DTM
 from colorama import Fore
 from random import randint
 
-hk416 = 0
+hk416 = 1
 Sjokoladeis = 0
 Vaniljeis = 0
 kniv = 1
@@ -31,7 +32,7 @@ def ute():
     global Sjokoladeis, liv
     print( mc + " går ut og finner iskremsjappa. Der står iskremmannen og gir ut is.")
     print("nå må " + mc + " velge is.")
-    valg1 = input("A: sjokaladeis | B: Vaniljeis -> ")
+    valg1 = input("A: sjokaladeis | B: vaniljeis -> ")
     if valg1 == "A":
         sjokolade()
 
@@ -65,26 +66,161 @@ def vanilje():
         militær_leir()
     
     if valg2 == "A":
-       
-        global Vaniljeis, valg24, valg24b
-        print("du ble ikke med i hæren")
-        print("du nyter iskremen din")
-        Vaniljeis -= 1
-        print("du hører plutselig en lyd fra skogen")
-        print("bryr du deg?")
-        valg24 = input("A: Du bryr deg og sjekker ut lyden | B: du bryr deg ikke og sjekker ikke ut lyden -> ")
-        if valg24 == "B":
-            print("du sjekker ikke ut lyden og står der")
-            print("plutselig ser du noe komme løpene ut skogen")
-            print("Jeff Bezos kommer løpene mot deg i full fart")
-            print("han er klar for å drepe deg. hva skal du gjøre nå?")
-            valg24b = input("A: Angrip tilbake | B: Dukk unna! -> ")
-            if valg24b == "A":
-                if hk416 > 0:
-                    print("Du tar hk416en din og skyter Jeff bezos ned")
-                else:
-                    print("du gjør deg klar for å ta imot angrepet")
+        plass()
+
+
+def plass():
+    global Vaniljeis, valg24, valg24b, hk416, liv
+    print("du ble ikke med i hæren")
+    print("du nyter iskremen din")
+    Vaniljeis -= 1
+    print("du hører plutselig en lyd fra skogen")
+    print("bryr du deg?")
+    valg24 = input("A: Du bryr deg og sjekker ut lyden | B: du bryr deg ikke og sjekker ikke ut lyden -> ")
+    if valg24 == "B":
+        print("du sjekker ikke ut lyden og står der")
+        print("plutselig ser du noe komme løpene ut skogen")
+        print("Jeff Bezos kommer løpene mot deg i full fart")
+        print("han er klar for å drepe deg. hva skal du gjøre nå?")
+        valg24b = input("A: Angrip tilbake | B: Dukk unna! -> ")
+        if valg24b == "A":
+            if hk416 > 0:
+                print("Du tar hk416en din og skyter Jeff bezos ned")
+                print("jeff bezos detter ned og dør")
+                print("du sjekker ammoen din")
+                hk416 -= 1
+                print("du er tom for ammunisjon, og kaster bort hk416nen din")
+                skogen_alt()
                 
+
+            else:
+                print("du gjør deg klar for å ta imot angrepet")
+                
+
+def skogen_alt():
+    global liv, valg24d
+    print("du går inn skogen")
+    print("dypt inne i skogen ser du en innsjø")
+    print("du føler deg skitten. vil du hoppe uti?")
+    valg24d = input("A: hopp uti og vask deg selv | B: ikke hopp uti og fortsett videre -> ")
+    if valg24d == "A":
+        print("du hopper uti vannet")
+        print("du føler deg rein og god")
+        liv += 20
+        print("på en eller annen måte føler du deg helberedt")
+        print("du fortsetter videre i skogen")
+        print("du finner en helipad i skogen, og det står ett helikopter på den")
+        print("du går inn i helikopteret og starter det")
+        as350()
+
+def as350():
+    global valg25, rar
+    print("du flyr opp og ser ned. hvor vil du lande?")
+    valg25 = input("A: militær leiren | B: slumene | C: sykehuset | D: hjemme | E: den super mørke og super skumle skogen til høyre -> ")
+    if valg25 == "E":
+        rar = randint (0,1)
+        if rar == 0:
+         Xi_Jinping()
+        elif rar == 1:
+         loogi()
+        
+
+def Xi_Jinping():
+    
+    print("⣿⣿⣿⣿⣿⠟⠋⠄⠄⠄⠄⠄⠄⠄⢁⠈⢻⢿⣿⣿⣿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⡀⠭⢿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⡟⠄⢀⣾⣿⣿⣿⣷⣶⣿⣷⣶⣶⡆⠄⠄⠄⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⡇⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠄⠄⢸⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣇⣼⣿⣿⠿⠶⠙⣿⡟⠡⣴⣿⣽⣿⣧⠄⢸⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⣾⣿⣿⣟⣭⣾⣿⣷⣶⣶⣴⣶⣿⣿⢄⣿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⣿⣿⣿⡟⣩⣿⣿⣿⡏⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⣿⣹⡋⠘⠷⣦⣀⣠⡶⠁⠈⠁⠄⣿⣿⣿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⣿⣍⠃⣴⣶⡔⠒⠄⣠⢀⠄⠄⠄⡨⣿⣿⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⣿⣿⣿⣦⡘⠿⣷⣿⠿⠟⠃⠄⠄⣠⡇⠈⠻⣿⣿⣿⣿")
+    print("⣿⣿⣿⣿⡿⠟⠋⢁⣷⣠⠄⠄⠄⠄⣀⣠⣾⡟⠄⠄⠄⠄⠉⠙⠻")
+    print("⡿⠟⠋⠁⠄⠄⠄⢸⣿⣿⡯⢓⣴⣾⣿⣿⡟⠄⠄⠄⠄⠄⠄⠄⠄")
+    print("⠄⠄⠄⠄⠄⠄⠄⣿⡟⣷⠄⠹⣿⣿⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄")
+    print("⠄⠄⠄⠄⠄⠄⣸⣿⡷⡇⠄⣴⣾⣿⣿⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄")
+    print("⠄⠄⠄⠄⠄⠄⣿⣿⠃⣦⣄⣿⣿⣿⠇⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄")
+    print("⠄⠄⠄⠄⠄⢸⣿⠗⢈⡶⣷⣿⣿⡏⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄")
+    print("du befinner deg i den mørke skogen")
+    print("å nei! det er ole brumm!")
+    print("ole brumm sier: ''du skal bli sent til Xinjiang og bli en del av staten!!''")
+    print("du stikker tilbake til helikopteret ditt, og tar av.")
+    as350()
+
+def loogi():
+    global boss, hk416, bossliv
+
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⢀⣤⠖⢛⣃⡈⠙⠲⢤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⢇⣄⡖⢫⣁⠈⠛⢦⡀⠌⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣞⣿⡝⣦⡟⠀⢸⡿⠀⠀⠀⢳⡈⡐⢈⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⣯⣿⣷⡻⢼⡇⠀⢸⣧⣤⣶⠀⢸⡇⠐⠂⡄⠘⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣷⣛⢆⡛⡶⣤⣤⣤⡴⠴⠛⠠⢁⠡⡀⠃⠄⡹⣄⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⣿⣾⣽⣾⣿⣿⣿⢿⠿⣿⣿⣿⣶⣌⠐⡠⢉⠐⢤⡟⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⣿⣿⣿⣿⣿⣿⡿⠻⣿⡌⠂⣾⡛⠻⡏⠙⢿⣆⠂⠌⣼⠃⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡿⣿⣿⣿⣿⡏⠀⣼⣿⣇⢀⣿⣿⡀⠘⡄⠀⢹⣌⣰⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣶⢶⣄⡀⣀⣽⣿⣿⣿⣿⡆⠀⣿⣷⠏⠸⠿⣿⡇⢀⡇⠀⠀⠙⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⠀⠀⠀⣠⣶⢴⣾⢽⣿⠿⣷⣷⡿⣿⣿⣿⣿⡾⣿⣤⡾⠁⠀⠀⠀⠨⠄⠜⠀⡀⠀⠀⠈⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⠀⠀⢀⣴⣾⣿⣿⣶⣼⠛⢀⡼⠃⣿⣧⣿⣿⣿⣿⣿⣿⣿⢲⡡⠄⡀⠀⠀⠀⠀⣠⣷⠀⣀⠀⣼⠇⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⢀⣶⣿⣾⣿⣿⣷⣏⠀⣰⠟⢀⣾⡿⢻⣿⣿⣿⣿⣿⣿⣿⣷⣹⢆⡡⢂⣀⣴⣾⣿⡿⢐⣧⢟⡋⠀⠀⠀⠀⠀⠀⠀⠀⠀")
+    print("⢸⣿⡿⣿⣿⣯⣽⣿⣿⠉⠀⣾⣷⣷⡀⠈⠻⣟⢻⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⡿⣟⣶⡟⠋⡉⠬⡓⢦⣀⠀⠀⠀⠀⠀⠀")
+    print("⢸⣿⡗⣿⣿⣿⣿⣿⣿⠠⣿⣿⣿⣿⢷⠀⠀⠙⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⡟⢀⠂⡅⢢⡑⣣⡤⢑⢦⡀⠀⠀⠀")
+    print("⠘⣇⢿⣾⣽⣿⣾⣿⠇⣴⠛⠛⢿⣿⡍⠀⠀⠀⣼⣿⣿⠃⡈⢉⠛⢛⣿⣿⣿⣿⣿⣧⠀⠧⣜⣱⢺⠵⠉⢺⡴⣍⢧⠀⠀")
+    print("⠀⢸⣼⣾⣷⣌⣷⣏⣼⠇⠀⠀⣀⣽⡷⠀⠀⣰⠟⠻⣧⣴⣬⣴⣬⣼⣿⠿⢿⣿⣿⣿⣿⣷⣾⣵⣋⣤⣬⣷⣿⢧⠟⠀⠀")
+    print("⠀⢸⡹⣿⢿⣿⣿⣿⣿⡟⠀⠒⠛⠉⢦⠀⠀⡏⠀⢀⣿⣿⣿⣿⣿⡏⠀⠀⠀⢹⣿⣿⣿⣍⠉⠀⠀⠀⠀⠀⢈⡙⣷⡀⠀")
+    print("⠀⢸⡗⣬⣉⠉⠀⠈⠁⠀⠀⠀⠀⠀⠈⢻⣿⣿⣧⣿⣿⣿⣿⣿⣿⣿⣶⣠⣰⣾⣿⣿⣿⠋⠁⠀⠀⠀⠀⠀⠀⠙⠻⣷⠀")
+    print("⠀⠸⣏⣶⡱⢂⠀⠀⠂⠀⠀⠀⠀⠀⠀⣿⠋⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇")
+    print("⠀⠀⠻⣧⠙⠂⠀⡀⠀⠀⠀⠀⠀⠀⣼⠃⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠃")
+    print("⠀⠀⠀⠘⢷⠀⠀⠀⠀⠀⠀⠀⠀⣴⠟⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⢀⡇⠀")
+    print("⠀⠀⠀⠀⠈⠳⢤⣀⣀⣀⣠⠤⠞⣁⠀⠀⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣦⣄⣀⣀⣠⢠⢄⣶⠴⢋⠁⠀")
+    print("du befinner deg i den mørke skogen")
+    print("å nei! det er Luigi med en pistol!")
+    print("''du har gått inn i territoriet mitt, si dine siste ord!''")
+    print("du løper inn i helikopteret igjen")
+    print("men luigi skyter ned helikopteret med sin 500mms pistol!")
+    bosskamp()
+
+def bosskamp():
+    global bossliv, boss, hk416, dmg, liv
+    print("nå må du slåsse!")
+    bossliv = 100
+    
+
+
+
+    fighting = True
+    while fighting:
+        print("bossen har 100 liv")
+        boss = input("A: slå | B: spark | C: skyt -> ")
+        
+        if boss == "C":
+            if hk416 > 0:
+                dmg = randint (10,50)
+                print(f"Du skyter luigi og gjør {dmg} skade.")
+                bossliv -= dmg
+            else:
+                print("du tar frem våpnet")
+                print("men da du leiter, så kommer du på at du har ingen våpen")
+                print("du ser tilbake på luigi, som nå har fått tid til å sikte")
+                take_dmg = randint (80,1000)
+                liv -= take_dmg
+
+
+        print("bossens liv:", bossliv)
+        if bossliv < 1:
+            fighting = False
+            print("bossen døde. du drepte luigi!!")
+            
+        
+        sjekk_liv()
+
+
+
+    
+
+
 
 
 
@@ -168,8 +304,8 @@ def Kina():
     print("du ser deg rundt etter skilt som kansje kan vise deg hvor du er")
     print("du ser ett skilt der det står: ''欢迎来到中国，游客我们会说英文''")
     print("å nei. du er i Kina")
-    print("plutselig så hyler folkene som er på kaien etter de ser hk416en din")
-    print("da kommer det plutselig en skvadron med kinesiske soldater i biler kjørende inn på kaien.")
+    print("plutselig så hyler alle på kaien i skrekk etter de ser hk416en din")
+    print("plutselig kommer en skvadron med soldater i biler kjørende inn på kaien.")
     print("du prøver å skyte dem med hk416en din, men du blir desværre skutt ned av ett maskingevær")
     liv -= 500
     sjekk_liv()
@@ -189,7 +325,7 @@ def sykehus():
 
 def slum():
     global mistenkligpille
-    print("Neste dag går du til iskremsjappe og møter gjengen.")
+    print("Neste dag går du til iskremsjappa og møter gjengen.")
     print("du gir dem pillen og sier: ''Spis denne pillen for 1000kr''")
     print("''ok pyse. vi spiser den.''")
     if mistenkligpille > 0:
@@ -289,4 +425,4 @@ def c130():
 
 
 
-hjemme()
+loogi()
