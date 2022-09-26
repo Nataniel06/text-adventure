@@ -2,7 +2,7 @@ from msilib import PID_LASTSAVE_DTM
 from colorama import Fore
 from random import randint
 
-hk416 = 1
+hk416 = 0
 Sjokoladeis = 0
 Vaniljeis = 0
 kniv = 1
@@ -212,7 +212,7 @@ def bosskamp():
         if bossliv < 1:
             fighting = False
             print("bossen døde. du drepte luigi!!")
-            
+
         
         sjekk_liv()
 
@@ -425,4 +425,4 @@ def c130():
 
 
 
-loogi()
+hjemme()
